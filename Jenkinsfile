@@ -1,8 +1,8 @@
 pipeline {
-
     agent any
 
     tools {
+        // Asegúrate de que estos nombres coincidan con lo configurado en Jenkins:
         jdk 'JDK 11'
         maven 'MAVEN'
     }
@@ -21,13 +21,13 @@ pipeline {
 
         stage('Maven build') {
             steps {
-                sh "mvn clean install -DskipTests"
+                bat "mvn clean install -DskipTests"
             }
         }
 
-        stage('Test') {
+        stage('Run tests') {
             steps {
-                sh "mvn clean test -Dtest=GeneralRunner -Dtest-suite=acceptance -DwithTags=EditCSV"
+                bat "mvn test -Dtest=GeneralRunner -Dtest-suite=acceptance -DwithTags=EditCSV"
             }
         }
 
@@ -45,3 +45,4 @@ pipeline {
         }
     }
 }
+
