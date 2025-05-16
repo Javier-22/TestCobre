@@ -1,0 +1,15 @@
+# Maven
+target/
+.idea/
+*.log
+karate.log
+*.tmp
+*.out
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Dependencies folders
+.mvn/
+.m2/
